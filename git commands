@@ -1,3 +1,0 @@
-
-git command to push code and files to git repository
-git add . && git commit -m "updated" && git push origin master
