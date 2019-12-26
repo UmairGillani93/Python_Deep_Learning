@@ -87,3 +87,7 @@ history = model.fit(training_padded, training_labels, epochs=NUM_EPOCHS,
 
 # save the model results
 model.save('test.h6')
+
+# MODEL ANALYSIS:
+    # Trained more quickly than Bidirectional LSTM layer
+    # Has more Training accuracy and Less Validation accuracy than Birectional LSTM 
