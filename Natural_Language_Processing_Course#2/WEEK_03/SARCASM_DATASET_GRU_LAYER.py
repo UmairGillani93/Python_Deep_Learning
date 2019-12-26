@@ -61,9 +61,8 @@ print(f"Testing Sequences: {testing_sequences[0]} Testing Padded Sequences: {tes
 # Building the model
 model = tf.keras.Sequential([
         tf.keras.layers.Embedding(VOCAB_SIZE, EMB_DIM, input_length=MAX_LEN),
-        tf.keras.layers.Conv1D(128, 5, activation='relu'),
-        tf.keras.layers.GlobalMaxPooling1D(),
-        tf.keras.layers.Dense(24, activation='relu'),
+        tf.keras.layers.Bidirectional(tf.keras.layers.GRU(32)), # Gated Recurrent Layer added!
+        tf.keras.layers.Dense(6, activation='relu'),
         tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
@@ -89,5 +88,5 @@ history = model.fit(training_padded, training_labels, epochs=NUM_EPOCHS,
 model.save('test.h6')
 
 # MODEL ANALYSIS:
-    # Trained more quickly than Bidirectional LSTM layer
-    # Has more Training accuracy and Less Validation accuracy than Birectional LSTM
+    # Trained less quickly than Bidirectional LSTM layer
+    # Has almost same Training accuracy and Validation accuracy than Birectional LSTM
